@@ -14,6 +14,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using StarterMvc.Models;
 using StarterMvc.Services;
+using System.IO;
+using Microsoft.AspNetCore.Server.Kestrel.Filter;
+using System.Security.Cryptography.X509Certificates;
 
 namespace StarterMvc
 {
@@ -33,7 +36,7 @@ namespace StarterMvc
             }
 
             builder.AddEnvironmentVariables();
-            Configuration = builder.Build().ReloadOnChanged("appsettings.json");
+            Configuration = builder.Build();//.ReloadOnChanged("appsettings.json");
         }
 
         public IConfigurationRoot Configuration { get; set; }
@@ -71,6 +74,17 @@ namespace StarterMvc
             {
                 app.UseExceptionHandler("/Home/Error");
 
+            }
+
+            var testCertPath = Path.Combine(env.ContentRootPath, "stressmvc.pfx");
+
+            if (File.Exists(testCertPath))
+            {
+                app.UseKestrelHttps(new X509Certificate2(testCertPath, "stressmvc"));
+            }
+            else
+            {
+                Console.WriteLine("Could not find certificate at '{0}'. HTTPS is not enabled.", testCertPath);
             }
 
             app.UseStaticFiles();

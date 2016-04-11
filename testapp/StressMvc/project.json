@@ -15,6 +15,7 @@
     "Microsoft.AspNetCore.Mvc": "1.0.0-*",
     "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.Kestrel.Https": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
     "Microsoft.AspNetCore.WebSockets.Protocol": "0.1.0-*",
     "Microsoft.AspNetCore.WebSockets.Server": "0.1.0-*",
@@ -49,5 +50,5 @@
     "**.user",
     "**.vspscc"
   ],
-  "content": [ "appsettings.json", "Views", "wwwroot" ]
+  "content": [ "appsettings.json", "stressmvc.pfx", "Views", "wwwroot" ]
 }
