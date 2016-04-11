@@ -5,6 +5,12 @@
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
+  "runtimeOptions": {
+    "configProperties": {
+      "System.GC.Server": true,
+      "System.GC.Concurrent": true
+    }
+  },
   "dependencies": {
     "Microsoft.EntityFrameworkCore.Commands": "1.0.0-*",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-*",
@@ -15,6 +21,7 @@
     "Microsoft.AspNetCore.Mvc": "1.0.0-*",
     "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.Kestrel.Https": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
     "Microsoft.AspNetCore.WebSockets.Protocol": "0.1.0-*",
     "Microsoft.AspNetCore.WebSockets.Server": "0.1.0-*",
@@ -26,14 +33,28 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0-*",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-*"
   },
+  "runtimeTarget": {
+    "name": ".NETStandardApp,Version=v1.5",
+    "portable": true
+  },
+  "targets": {
+    ".NETStandardApp,Version=v1.5": { }
+  },
+  "runtimes": {
+    "ubuntu.14.04-x64": [ ],
+    "win10-x64": [ ],
+    "win81-x64": [ ],
+    "win8-x64": [ ],
+    "win7-x64": [ ]
+  },
   "commands": {
-    "web": "StarterMvc",
+    "web": "StressMvc",
     "ef": "Microsoft.EntityFrameworkCore.Commands"
   },
   "frameworks": {
     "netstandardapp1.5": {
       "dependencies": {
-        "NETStandard.Library": "1.5.0-*"
+        "Microsoft.NETCore.App": "1.0.0-*"
       },
       "imports": [
         "dnxcore50",
@@ -49,7 +70,7 @@
     "**.user",
     "**.vspscc"
   ],
-  "content": [ "appsettings.json", "Views", "wwwroot" ],
+  "content": [ "appsettings.json", "stressmvc.pfx", "Views", "wwwroot" ],
     "runtimeOptions": {
     "configProperties": {
       "System.GC.Server": true
