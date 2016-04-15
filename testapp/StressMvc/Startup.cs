@@ -22,6 +22,8 @@ namespace StarterMvc
 {
     public class Startup
     {
+        static readonly string _httpsCertFile = "stressmvc.pfx";
+        static readonly string _httpsCertPwd = "stressmvc";
         public Startup(IHostingEnvironment env)
         {
             // Set up configuration sources.
@@ -76,17 +78,6 @@ namespace StarterMvc
 
             }
 
-            var testCertPath = Path.Combine(env.ContentRootPath, "stressmvc.pfx");
-
-            if (File.Exists(testCertPath))
-            {
-                app.UseKestrelHttps(new X509Certificate2(testCertPath, "stressmvc"));
-            }
-            else
-            {
-                Console.WriteLine("Could not find certificate at '{0}'. HTTPS is not enabled.", testCertPath);
-            }
-
             app.UseStaticFiles();
 
             app.UseIdentity();
@@ -111,7 +102,13 @@ namespace StarterMvc
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                .UseKestrel()
+                .UseKestrel(options =>
+                {
+                    //options.ThreadCount = 4;
+                    //options.NoDelay = true;
+                    //options.UseConnectionLogging();
+                    options.UseHttps(_httpsCertFile, _httpsCertPwd);
+                })
                 .UseDefaultHostingConfiguration(args)
                 .UseIISIntegration()
                 .UseStartup<Startup>()

@@ -27,6 +27,20 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0-*",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-*"
   },
+  "runtimeTarget": {
+    "name": ".NETStandardApp,Version=v1.5",
+    "portable": true
+  },
+  "targets": {
+    ".NETStandardApp,Version=v1.5": { }
+  },
+  "runtimes": {
+    "ubuntu.14.04-x64": [ ],
+    "win10-x64": [ ],
+    "win81-x64": [ ],
+    "win8-x64": [ ],
+    "win7-x64": [ ]
+  },
   "commands": {
     "web": "StarterMvc",
     "ef": "Microsoft.EntityFrameworkCore.Commands"
@@ -34,7 +48,7 @@
   "frameworks": {
     "netstandardapp1.5": {
       "dependencies": {
-        "NETStandard.Library": "1.5.0-*"
+        "Microsoft.NETCore.App": "1.0.0-*"
       },
       "imports": [
         "dnxcore50",
