@@ -5,12 +5,6 @@
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
-  "runtimeOptions": {
-    "configProperties": {
-      "System.GC.Server": true,
-      "System.GC.Concurrent": true
-    }
-  },
   "dependencies": {
     "Microsoft.EntityFrameworkCore.Commands": "1.0.0-*",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-*",
