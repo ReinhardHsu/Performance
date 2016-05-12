@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "copyToOutput": {
+      "include": [
+        "Views",
+        "wwwroot"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dnxcore50",
+        "portable-net451+win8"
+      ],
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "version": "1.0.0-*",
+          "type": "platform"
+        }
+      }
+    },
+    "net451": {}
+  },
+  "dependencies": {
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-*",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-*",
+    "Microsoft.Extensions.Configuration.CommandLine": "1.0.0-*"
+  },
+  "commands": {
+    "web": "KestrelShutdown"
+  },
+  "runtimeOptions": {
+    "configProperties": {
+      "System.GC.Server": true
+    }
+  }
+}
